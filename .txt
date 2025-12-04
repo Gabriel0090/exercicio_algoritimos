@@ -1,0 +1,59 @@
+Projeto Final - Entrega até 04/12 às 23:59
+Algoritmos e Programação
+Prof. Giovanni Gaiardo
+giovanni.gaiardo@unilasalle.edu.br
+Enunciado Geral
+Escreva um programa em linguagem Python para cadastrar e realizar operações sobre veículos no sistema online de uma hipotética locadora de veículos. Seu programa deve possuir um menu principal como interface (textual) a partir do qual o usuário poderá navegar até que a opção "sair" seja escolhida. Esse menu deve ser controlado pela função main, de onde chamadas a outras funções serão feitas (detalhes abaixo).
+
+Deve-se adotar o seguinte dicionário para representar um veículo:
+
+veiculoExemplo = {
+    "ano": 1998,
+    "placa": "AAA-8888",
+    "modelo": "Gol",
+    "aluguelDia": 89.9
+}
+O programa deve, obrigatoriamente, implementar as funções descritas a seguir no formato indicado, sob pena de invalidação da entrega:
+
+
+def main():
+    """
+        Imprime o menu principal na tela, faz entrada e validação de dados e resolve cada uma das opções do menu. Sempre que indicado, a função `main` deve utilizar as funções definidas no restante desse documento como auxiliares. As opções do menu (considere os números de 1 a 5) são as seguintes:
+
+        1. Cadastra veículo: cadastra um veículo na aplicação. Os veículos devem ser alocados na função `main` usando uma lista de dicionários. Assuma que no máximo `NUM_VEICULOS` veículos podem ser cadastrados, sendo `NUM_VEICULOS` uma constante com valor 5. Faça a verificação se um novo veículo pode ser cadastrado na função `main`, antes da chamada de função específica. Caso haja espaço para o cadastro de novos veículos, faça a chamada da função `preencheInfoVeiculo` que retorna um veículo preenchido e o coloque na lista de dicionários. Caso não seja possível incluir novos veículos, exiba uma mensagem adequada informando o ocorrido e retorne ao menu principal.
+        2. Consulta veículo: consulta, usando uma placa informada pelo usuário, se um veículo está cadastrado na aplicação (assumindo placa única por veículo). Caso o veículo esteja cadastrado na aplicação, seus dados devem ser exibidos e, caso contrário, uma mensagem deve ser apresentada na tela informando o ocorrido. As funções `consultaVeiculo` e (potencialmente) `imprimeVeiculo` devem ser chamadas nessa opção do menu. Ao final da operação, o usuário deve ser redirecionado ao menu principal.
+        3. Preço total da frota: calcula e imprime o preço total da frota de veículos cadastrada. Para o cálculo, considere a locação de todos os veículos por um único dia. Nessa opção do menu, a função auxiliar `calculaPrecoTotal` deve ser utulizada. A término dessa operação, o usuário deve voltar ao menu principal.
+        4. Mais novo ao preço de: imprime os dados do veículo mais novo desde que seu aluguel diário seja inferior a um determinado valor informado pelo usuário. A função `imprimeVeiculo` deve ser utilizada. Caso não haja nenhum veículo que respeite essas restrições, deve-se informar ao usuário. O usuário é redirecionado ao menu principal após essa operação.
+        5. Sair: sai do menu principal e encerra a aplicação.
+    """
+
+def preencheInfoVeiculo() -> dict:
+    """
+        Preenche todos os campos de um veículo com as informações digitadas pelo usuário. A entrada de dados ocorre dentro desta função. A função retorna o dicionário com os dados do veículo cadastrado.
+    """
+
+def imprimeVeiculo(veiculo: dict) -> None:
+    """
+        Imprime as informações (todos os campos do dicionário) de um determinado veículo na tela.
+    """
+
+def calculaPrecoTotal(frota: list[dict]) -> float:
+    """
+        Calcula o valor total do aluguel por um dia de todos os veículos cadastrados na aplicação, retornando este valor.
+    """
+
+def consultaVeiculo(frota: list[dict], placa: str) -> int:
+    """
+        Procura um veículo a partir da placa fornecida. Caso o veículo seja encontrado, deve-se retornar seu índice na lista. Caso não exista, retorna-se -1. Assuma que a placa de um veículo é única.
+    """
+Bônus
+O estudante que implementar funções para leitura e escrita das estruturas manipuladas em memória de/para arquivos de texto (escreveArquivoVeiculos e leArquivoVeiculos) pode receber um bônus de até 1 ponto na nota deste trabalho. O aluno que implementar uma função para atualização dos dados de uma estrutura (atualizaVeiculo) pode receber um bônus de até 0,25 na nota deste trabalho. Deve-se incluir opções correspondentes no menu para acomodar as chamadas dessas funções bônus.
+
+Obs.: a nota final do trabalho não ultrapassa o valor 10 (peso 4 no cálculo do G2).
+
+Instruções para a Entrega
+O projeto deve ser resolvido de forma individual;
+O projeto deve ser entregue por um dos seguintes meios:
+Compartilhamento de notebook do Google Colab com o e-mail do professor (giovanni.gaiardo@unilasalle.edu.br);
+Compartilhamento de repositório no Github com o usuário giovannigaiardo;
+Não será aceita a entrega por outros meios.
